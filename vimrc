@@ -2,10 +2,6 @@
 " Author: Pranat Surana
 " set UTF-8 encoding
 
-
-execute pathogen#infect()
-
-
 set enc=utf-8
 set fenc=utf-8
 set termencoding=utf-8
@@ -89,6 +85,10 @@ Plugin 'SirVer/ultisnips'
 
 Plugin 'scrooloose/nerdtree'
 
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
+
+"Plugin 'Valloric/YouCompleteMe'"
 call vundle#end() 
 
 filetype plugin indent on
@@ -99,9 +99,18 @@ let g:UltiSnipsExpandTrigger="<ctrl-[>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
-
 colorscheme gruvbox
+set background=dark
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+
+let g:ctrlp_prompt_mappings = {
+    \ 'AcceptSelection("e")': ['<C-e>'],
+    \ 'AcceptSelection("t")': ['<Cr>'], }
+
+let g:ctrlp_user_command = 'find %s -type f'
+
+let g:ctrlp_max_files = 0
 
 
+nnoremap <Leader>f :Files<CR>
 
-let g:ycm_global_ycm_extra_conf = '/home/surana/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
