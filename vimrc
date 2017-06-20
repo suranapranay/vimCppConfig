@@ -1,6 +1,7 @@
 " VIM Configuration File for CPP
-" Author: Pranat Surana
+" Author: Pranay Surana
 " set UTF-8 encoding
+
 
 set enc=utf-8
 set fenc=utf-8
@@ -27,6 +28,8 @@ set number
 set showmatch
 " intelligent comments
 set comments=sl:/*,mb:\ *,elx:\ */
+" clipboard awesome :) = yank clipboard"
+set clipboard=unnamedplus
 " Enhanced keyboard mappings
 " in normal mode F2 will save the file
 nmap <F2> :w<CR>
@@ -71,9 +74,9 @@ Plugin 'tpope/vim-fugitive'
 
 Plugin 'Buffergator'
 
-Plugin 'rdnetto/YCM-Generator'
+"Plugin 'rdnetto/YCM-Generator'"
 
-Plugin 'ctrlp.vim' 
+"Plugin 'ctrlp.vim'" 
 
 Plugin 'git://git.wincent.com/command-t.git'
 
@@ -81,12 +84,14 @@ Plugin 'morhetz/gruvbox'
 
 Plugin 'honza/vim-snippets'
 
-Plugin 'SirVer/ultisnips'
+"Plugin 'SirVer/ultisnips'"
 
 Plugin 'scrooloose/nerdtree'
 
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
+
+Plugin 'rhysd/vim-clang-format'
 
 "Plugin 'Valloric/YouCompleteMe'"
 call vundle#end() 
@@ -111,6 +116,30 @@ let g:ctrlp_user_command = 'find %s -type f'
 
 let g:ctrlp_max_files = 0
 
-
+"### fzf :) "
 nnoremap <Leader>f :Files<CR>
+"## end fzf :)"
+"
+"
+"## new tab ctags"
+map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
+
+"## clangformat"
+
+let g:clang_format#code_style='google'
+
+let g:clang_format#style_options = {
+            \ "AccessModifierOffset" : -3,
+            \ "Standard" : "C++11"}
+
+
+"## nifty little mousehack for ctags
+:map <2-LeftMouse> g< c-]>
+
+"## little trick to quickescape
+imap jj <esc>
+imap Jj <esc>
+imap jJ <esc>
+imap JJ <esc>
