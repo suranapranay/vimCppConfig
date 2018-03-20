@@ -1,0 +1,4 @@
+function cdp { pushd ./ && cd "$@";}
+function gprom { git pull --rebase origin master; }
+function fname { find . -name "$@" ; }
+function glo { git log --oneline; }
