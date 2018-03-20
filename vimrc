@@ -143,3 +143,5 @@ imap jj <esc>
 imap Jj <esc>
 imap jJ <esc>
 imap JJ <esc>
+:highlight ExtraWhitespace ctermbg=red guibg=red
+:autocmd Syntax * syn match ExtraWhitespace /\s\+$\| \+\ze\t/
