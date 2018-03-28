@@ -1,4 +1,8 @@
 function cdp { pushd ./ && cd "$@";}
 function gprom { git pull --rebase origin master; }
 function fname { find . -name "$@" ; }
+function gni { grep -rni "$@" ; }
 function glo { git log --oneline; }
+function gsl { git status | less }
+function gout { git checkout "$@" ; }
+function cdf { cd `dirname "$@"` ; }
