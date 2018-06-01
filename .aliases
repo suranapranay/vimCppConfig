@@ -1,10 +1,17 @@
 function cdp { pushd ./ && cd "$@";}
 function gprom { git pull --rebase origin master; }
 function fname { find . -name "$@" ; }
-function gni { grep -rni "$@" ; }
+function gni { grep -rni --color=always -R "$@" ; }
 function gsl { git status | less ;}
 function glo { git log --oneline "$@" ; }
 function gsl { git status | less ; }
 function gout { git checkout "$@" ; }
 function cdf { cd `dirname "$@"` ; }
 function gslc { git -c color.status=always status | less -REX ; }
+function lessc { less -REX ; }
+function gnilsc { gni "$@" | less -REX ; }
+function psgrep { ps -ef | grep -i "$@" ; }
+
+#zsh autocompletes
+compdef _git gout=git-checkout
+
